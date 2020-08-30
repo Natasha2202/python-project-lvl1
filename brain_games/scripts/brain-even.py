@@ -5,18 +5,28 @@ import prompt
 
 def main():
     print('Welcome to the Brain Games!\nAnswer "yes" if number even otherwise answer "no".')
-    welcome_user()
+    name = welcome_user()
+    count = 0
     
-    rand_number = randint(0, 1000)
-    print('Question: {}'.format(rand_number))
-    answer_user = prompt.string('Your answer:')
-    if rand_number % 2 == 0:
-        correct_answer = 'yes'
-    else:
-        correct_answer = 'no'
-    if correct_answer == answer_user:
-        print('Correct!')
-    #print("'yes' is wrong answer ;(. Correct answer was 'no'")
+    for _ in range(3):
+        rand_number = randint(0, 1000)
+        print('Question: {}'.format(rand_number))
+        answer_user = prompt.string('Your answer:')
+        if rand_number % 2 == 0:
+            correct_answer = 'yes'
+        else:
+            correct_answer = 'no'
+        if correct_answer == answer_user:
+            print('Correct!')
+            count += 1
+            if count == 3:
+                print('Congratulations, {}!'.format(name))
+        else:
+            print("{} is wrong answer ;(. Correct answer was {}".format(answer_user, correct_answer))
+            break
+
+        
+    
 
 if __name__ == '__main__':
     main()
