@@ -4,10 +4,10 @@ import prompt
 
 
 def main():
-    print('Welcome to the Brain Games!\nAnswer "yes" if number even otherwise answer "no".')
+    print('Welcome to the Brain Games!')
+    print('Answer "yes" if number even otherwise answer "no".')
     name = welcome_user()
     count = 0
-    
     for _ in range(3):
         rand_number = randint(0, 1000)
         print('Question: {}'.format(rand_number))
@@ -22,11 +22,10 @@ def main():
             if count == 3:
                 print('Congratulations, {}!'.format(name))
         else:
-            print("{} is wrong answer ;(. Correct answer was {}".format(answer_user, correct_answer))
+            print("{} is wrong answer ;(. Correct answer was {}"
+                  .format(answer_user, correct_answer))
             break
 
-        
-    
 
 if __name__ == '__main__':
     main()
